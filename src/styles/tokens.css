@@ -1,0 +1,53 @@
+/*
+ * Design tokens used by the Pot detail screen, exported from the Figma variables
+ * (light mode). Names follow the Figma variable path in kebab-case.
+ *
+ * --wit-*  : variables that already have a WEB code syntax in Figma (Wit collections).
+ * --xds-*  : base XDS variables. They have no code syntax in Figma yet; these names
+ *            are the proposed ones (see SPEC.md › Gaps).
+ */
+:root {
+  /* Colour */
+  --wit-color-core-accent: #9fe870;
+  --wit-color-core-accent-muted: #e2f6d5;
+  --wit-color-core-background-inverted: #163300;
+  --wit-color-icon-accent: #163300;
+  --wit-color-text-on-dark: #ffffff;
+  --xds-color-core-background-body: #f1f1f1;
+  --xds-color-core-neutral: #0000000f;
+  --xds-color-surface-card: #ffffff;
+  --xds-color-border-default: #00000014;
+  --xds-color-text-primary: #171717;
+  --xds-color-text-secondary: #737373;
+  --xds-color-icon-primary: #171717;
+  --xds-color-badge-success-bg: #198100;
+  --xds-color-badge-on-vivid: #ffffff;
+
+  /* Spacing */
+  --xds-spacing-1: 4px;
+  --xds-spacing-2: 8px;
+  --xds-spacing-3: 12px;
+  --wit-spacing-4: 16px;
+
+  /* Radius */
+  --xds-radius-inner: 6px;
+  --xds-radius-element: 10px;
+  --xds-radius-container: 12px;
+  --xds-radius-full: 9999px;
+
+  /* Size */
+  --xds-element-small: 28px;
+  --xds-element-medium: 32px;
+
+  /* Typography: font size / line height */
+  --xds-font-size-sm: 12px;
+  --xds-font-size-base: 14px;
+  --xds-font-size-xl: 20px;
+  --xds-font-size-2xl: 24px;
+  --xds-line-height-supporting: 20px;
+  --xds-line-height-body: 20px;
+  --xds-line-height-label: 20px;
+  --xds-line-height-heading-4: 20px;
+  --xds-line-height-heading-2: 28px;
+  --xds-line-height-heading-1: 32px;
+}

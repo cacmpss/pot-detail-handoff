@@ -1,0 +1,106 @@
+/*
+ * Pot detail components. Colours, spacing, radii and type come from tokens.css.
+ * The few raw sizes (screen padding 80/120, hero tile 56, progress bar 8) are not
+ * variables in Figma either; see SPEC.md › Gaps.
+ */
+@import './tokens.css';
+
+.pot-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--wit-spacing-4);
+  /* Top clears the status bar; bottom clears the assistant FAB + home indicator. */
+  padding: 80px var(--wit-spacing-4) 120px;
+  background: var(--xds-color-core-background-body);
+  min-height: 100dvh;
+}
+
+/* Top bar */
+.pots-top-bar { display: flex; justify-content: space-between; align-items: center; }
+
+/* Hero */
+.pots-pot-hero { display: flex; align-items: center; gap: var(--xds-spacing-3); }
+.pots-pot-hero__tile {
+  display: grid; place-items: center;
+  width: 56px; height: 56px;
+  border-radius: var(--xds-radius-full);
+  background: var(--wit-color-core-accent-muted);
+}
+.pots-pot-hero__name { font-size: var(--xds-font-size-xl); line-height: var(--xds-line-height-heading-2); color: var(--xds-color-text-primary); margin: 0; }
+.pots-pot-hero__goal { font-size: var(--xds-font-size-sm); line-height: var(--xds-line-height-supporting); color: var(--xds-color-text-secondary); margin: 0; }
+
+/* Balance + goal progress */
+.pots-pot-balance { display: flex; flex-direction: column; gap: var(--xds-spacing-2); }
+.pots-pot-balance__row { display: flex; justify-content: space-between; align-items: center; }
+.pots-pot-balance__amount { font-size: var(--xds-font-size-2xl); line-height: var(--xds-line-height-heading-1); color: var(--xds-color-text-primary); margin: 0; }
+.pots-goal-progress__bar {
+  display: flex; gap: var(--xds-spacing-1); height: 8px;
+  border-radius: var(--xds-radius-inner);
+  background: var(--xds-color-border-default);
+  overflow: hidden;
+}
+.pots-goal-progress__saved { background: var(--xds-color-text-primary); }
+.pots-goal-progress__scheduled { background: var(--wit-color-core-accent); }
+.pots-goal-progress__legend {
+  display: flex; gap: var(--wit-spacing-4); margin: 0; padding: 0; list-style: none;
+  font-size: var(--xds-font-size-sm); line-height: var(--xds-line-height-supporting); color: var(--xds-color-text-secondary);
+}
+.pots-goal-progress__legend li { display: flex; align-items: center; gap: var(--xds-spacing-1); }
+.pots-goal-progress__legend li::before { content: ''; width: 8px; height: 8px; border-radius: var(--xds-radius-full); }
+.pots-goal-progress__legend [data-segment='saved']::before { background: var(--xds-color-text-primary); }
+.pots-goal-progress__legend [data-segment='scheduled']::before { background: var(--wit-color-core-accent); }
+.pots-goal-progress__legend [data-segment='to-go']::before { background: var(--xds-color-border-default); }
+
+/* Shared card surface */
+.pots-action-tile,
+.pots-ai-goal-cta,
+.pots-schedule-card,
+.pot-detail__activity {
+  background: var(--xds-color-surface-card);
+  border: 1px solid var(--xds-color-border-default);
+  border-radius: var(--xds-radius-container);
+}
+
+/* Action row */
+.pots-action-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--xds-spacing-2); }
+.pots-action-tile {
+  display: flex; flex-direction: column; align-items: center; gap: var(--xds-spacing-2);
+  padding: var(--xds-spacing-3);
+  font-size: var(--xds-font-size-base); line-height: var(--xds-line-height-label); color: var(--xds-color-text-primary);
+}
+.pots-action-tile__icon { color: var(--wit-color-icon-accent); }
+.pots-action-tile:active { background: var(--xds-color-core-neutral); }
+.pots-action-tile:disabled { opacity: 0.4; }
+
+/* AI goal CTA */
+.pots-ai-goal-cta { display: flex; flex-direction: column; gap: var(--xds-spacing-3); padding: var(--xds-spacing-3); }
+.pots-ai-goal-cta__text { display: flex; align-items: center; gap: var(--xds-spacing-2); color: var(--wit-color-icon-accent); }
+.pots-ai-goal-cta__title { font-size: var(--xds-font-size-base); line-height: var(--xds-line-height-label); color: var(--xds-color-text-primary); margin: 0; }
+.pots-ai-goal-cta__description { font-size: var(--xds-font-size-sm); line-height: var(--xds-line-height-supporting); color: var(--xds-color-text-secondary); margin: 0; }
+
+/* Schedule card */
+.pots-schedule-card { display: flex; flex-direction: column; gap: var(--xds-spacing-3); padding: var(--xds-spacing-3); }
+.pots-schedule-card dl { display: flex; flex-direction: column; gap: var(--xds-spacing-3); margin: 0; }
+.pots-schedule-card dt { font-size: var(--xds-font-size-sm); line-height: var(--xds-line-height-supporting); color: var(--xds-color-text-secondary); }
+.pots-schedule-card dd { margin: 0; font-size: var(--xds-font-size-base); line-height: var(--xds-line-height-body); color: var(--xds-color-text-primary); }
+.pots-schedule-card__actions { display: flex; gap: var(--xds-spacing-2); }
+
+/* List header + activity */
+.pots-list-header { display: flex; justify-content: space-between; align-items: center; min-height: var(--xds-element-small); }
+.pots-list-header__title { font-size: var(--xds-font-size-base); line-height: var(--xds-line-height-heading-4); margin: 0; }
+.pot-detail__activity { display: flex; flex-direction: column; gap: var(--xds-spacing-2); padding: var(--xds-spacing-2); margin: 0; list-style: none; }
+.home-transaction-row { display: flex; align-items: center; gap: var(--xds-spacing-3); }
+.home-transaction-row__icon {
+  display: grid; place-items: center;
+  width: var(--xds-element-medium); height: var(--xds-element-medium);
+  border-radius: var(--xds-radius-full);
+  background: var(--xds-color-core-neutral);
+}
+.home-transaction-row__text { flex: 1; }
+.home-transaction-row__label,
+.home-transaction-row__amount { margin: 0; font-size: var(--xds-font-size-base); line-height: var(--xds-line-height-body); color: var(--xds-color-text-primary); }
+.home-transaction-row__description,
+.home-transaction-row__date { margin: 0; font-size: var(--xds-font-size-sm); line-height: var(--xds-line-height-supporting); color: var(--xds-color-text-secondary); }
+.home-transaction-row__meta { text-align: right; }
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

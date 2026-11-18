@@ -1,0 +1,19 @@
+{
+  "name": "pot-detail-handoff",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Pot detail screen: React components, design tokens and Figma Code Connect templates.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "figma:publish": "figma connect publish",
+    "figma:unpublish": "figma connect unpublish"
+  },
+  "dependencies": {
+    "react": "18.3.1"
+  },
+  "devDependencies": {
+    "@figma/code-connect": "^1.0.0",
+    "@types/react": "18.3.3",
+    "typescript": "5.4.5"
+  }
+}
