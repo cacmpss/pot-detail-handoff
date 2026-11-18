@@ -115,7 +115,7 @@ The screen receives one `PotDetail` object from the pots API (see [`PotDetailScr
 
 ## 8. Tokens
 
-All colours, spacing, radii and type sizes on the screen are bound to Figma variables; [`tokens.css`](src/styles/tokens.css) lists them with their light-mode values. Variables from the Wit collections already have a WEB code syntax (`var(--wit-…)`); the base XDS variables don’t, so the `--xds-…` names are proposed.
+All colours, spacing, radii and type sizes on the screen are bound to Figma variables; [`tokens.css`](src/styles/tokens.css) lists them with their light-mode values. Every Wit colour, spacing, radius and size variable has a WEB code syntax (`var(--wit-…)`), and the CSS uses those names. The base XDS variables come from the remote library and have no code syntax, so their `--xds-…` names are proposed (see Gaps).
 
 ## 9. Code Connect
 
@@ -163,9 +163,9 @@ Example: selecting **Pots / Pot balance** in Dev Mode would show:
 
 ### Gaps found in Figma
 
-| Gap | Impact | Suggested fix |
-|---|---|---|
-| `Pots / Pot hero` category icon is not a property | Code Connect can't pass the icon | Add an `Icon` instance-swap property |
-| Layer names in `Pots / Action row` don't match labels (*Action · Create* shows "Deposit") | Confusing in Dev Mode | Rename layers to *Deposit*, *Withdraw*, *Modify* |
-| Base XDS variables have no WEB code syntax | Dev Mode shows raw values instead of CSS vars | Set code syntax (`--xds-…`) like the Wit variables |
-| Screen padding (80 / 120), hero tile (56) and progress bar height (8) aren't variables | Hard-coded in CSS | Add size tokens or document them as fixed |
+| Gap | Status | Impact | Next step |
+|---|---|---|---|
+| Variables without WEB code syntax | **Partly fixed.** All Wit collections (Color, Spacing, Radius, Size, Border, Primitives) now have it. **Wit Typography** (0/32) and **Message AI • Astryx** (0/31) don't. Base XDS variables (Color, Spacing, Typography) come from the remote library and can only be changed there. | Dev Mode shows raw values for those variables | Add code syntax to Wit Typography; ask the XDS owners for the base variables. Until then the `--xds-…` names in `tokens.css` are proposed. |
+| Layer names in `Pots / Action row` | **Partly fixed.** The main component now matches its labels (Create · Deposit · Withdraw), but the Pot detail instance overrides the labels to Deposit · Withdraw · Modify, so *Action · Create* still shows "Deposit" there. | Confusing in Dev Mode | Use neutral layer names (*Action 1/2/3*) or add a `Context = List · Detail` variant with its own names. |
+| `Pots / Pot hero` category icon is not a property | **Open** | Code Connect can't pass the icon | Add an `Icon` instance-swap property; then add `icon` to `PotHero.figma.ts`. |
+| Screen padding (80 / 120), hero tile (56) and progress bar height (8) aren't variables | **Open** | Hard-coded in CSS | Add size tokens or document them as fixed. |

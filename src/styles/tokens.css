@@ -2,9 +2,9 @@
  * Design tokens used by the Pot detail screen, exported from the Figma variables
  * (light mode). Names follow the Figma variable path in kebab-case.
  *
- * --wit-*  : variables that already have a WEB code syntax in Figma (Wit collections).
- * --xds-*  : base XDS variables. They have no code syntax in Figma yet; these names
- *            are the proposed ones (see SPEC.md › Gaps).
+ * --wit-*  : Wit variables. Names match their WEB code syntax in Figma.
+ * --xds-*  : base XDS variables from the remote library. They have no code syntax
+ *            in Figma; these names are proposed (see SPEC.md › Gaps).
  */
 :root {
   /* Colour */
